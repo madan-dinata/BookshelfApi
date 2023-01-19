@@ -1,0 +1,25 @@
+{
+  "name": "BookshelfApi",
+  "version": "1.0.0",
+  "description": "submission dicoding",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js",
+    "lint": "eslint ./src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "madan",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^21.2.0",
+    "nanoid": "^4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.32.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "nodemon": "^2.0.20"
+  }
+}
