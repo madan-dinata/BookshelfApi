@@ -1,19 +1,67 @@
 import { nanoid } from "nanoid";
 import books from "./books.js";
 export const getBooks = (request, h) => {
-  const result = books.map((book) => ({
-    id: book.id,
-    name: book.name,
-    publisher: book.publisher,
-  }));
-  const res = h.response({
-    status: "success",
-    data: {
-      books: result,
-    },
-  });
-  res.code(200);
-  return res;
+  const { name, reading, finished } = request.query;
+  if (name !== undefined) {
+    const bookByName = books.filter((x) => x.name.includes(name.toLowerCase()));
+    const result = bookByName.map((book) => ({
+      id: book.id,
+      name: book.name,
+      publisher: book.publisher,
+    }));
+    const res = h.response({
+      status: "success",
+      data: {
+        books: result,
+      },
+    });
+    res.code(200);
+    return res;
+  } else if (reading !== undefined) {
+    const bookByReading = books.filter((x) => x.reading == reading);
+    const result = bookByReading.map((book) => ({
+      id: book.id,
+      name: book.name,
+      publisher: book.publisher,
+    }));
+    const res = h.response({
+      status: "success",
+      data: {
+        books: result,
+      },
+    });
+    res.code(200);
+    return res;
+  } else if (finished !== undefined) {
+    const bookByFinished = books.filter((x) => x.finished == finished);
+    const result = bookByFinished.map((book) => ({
+      id: book.id,
+      name: book.name,
+      publisher: book.publisher,
+    }));
+    const res = h.response({
+      status: "success",
+      data: {
+        books: result,
+      },
+    });
+    res.code(200);
+    return res;
+  } else {
+    const result = books.map((book) => ({
+      id: book.id,
+      name: book.name,
+      publisher: book.publisher,
+    }));
+    const res = h.response({
+      status: "success",
+      data: {
+        books: result,
+      },
+    });
+    res.code(200);
+    return res;
+  }
 };
 
 export const getBook = (request, h) => {
